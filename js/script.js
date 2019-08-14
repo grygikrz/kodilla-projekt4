@@ -6,3 +6,9 @@ function pageScroll(){
 
 
 document.querySelector('#scrollb').addEventListener('click', () => pageScroll());
+
+
+
+function toggleSidebar(){
+  document.querySelectorAll("header nav ul")[0].classList.toggle("active");
+}

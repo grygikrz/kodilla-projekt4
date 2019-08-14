@@ -316,6 +316,10 @@ nav a {
     float: left;
 }
 
+header nav ul{
+    position: relative;
+  }
+
 nav ul li {
     padding: 30px 11px;
     list-style: none;
@@ -329,7 +333,7 @@ nav ul li ul li:hover,
 nav ul li:hover {
     background-color: #c5c5c555;
     color: #fff;
-    border-bottom: 1px solid #fed136;
+    border-bottom: 5px solid #b88a57;
 }
 
 nav ul li.active {
@@ -629,7 +633,6 @@ section .section-footer img {
 section.jumbotron {
   width: 100%;
   padding: 0px;
-  display: table;
   height: 850px;
   margin: 0px;
 }
@@ -855,7 +858,6 @@ section.moreabout .item p {
     font-weight: 300;
     line-height: 25px;
     text-align: initial;
-    width: 634px;
 
 }
 
@@ -1057,6 +1059,11 @@ section.premium p {
     line-height: 25px;
 }
 
+section.premium .photo img {
+    width: 94%;
+}
+
+
 section.information  {
   width: 100%;
   height: 600px;
@@ -1147,12 +1154,60 @@ section.gallery ul li:last-child {
 section.gallery .thumb img{
     width: 255px;
     height: 165px;
+    display: block;
 }
 
 section.gallery .thumb {
-    float: left;
-    margin: 4px -7px;
+  position: relative;
+  width: 50%;
+  float: left;
+  margin: 4px -7px;
+  overflow: hidden;
 }
+
+section.gallery .overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #000000bd;
+  overflow: hidden;
+  width: 85%;
+  height:0;
+  transition: .5s ease;
+}
+
+section.gallery .text {
+    width: 85%;
+}
+
+section.gallery .text h4 {
+    margin: 0;
+}
+
+section.gallery .text p {
+    color: #fff;
+    font-size: 12px;
+    line-height: 21px;
+}
+
+section.gallery .thumb:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+section.gallery .text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 
 section.gallery .row {
     margin-top: 21px;
@@ -1699,7 +1754,51 @@ section.footer .subs p {
     }
 }
 
+@media all and (max-width:1480px){
+    header {
+        position: unset;
+      }
+    header nav ul{
+        right: -1094px;
+        transition: all 500ms linear;
+      }
+    .toggle-btn {
+        position: absolute;
+        left: 273px;
+        top: 33px;
+      }
+    .toggle-btn span {
+        display: block;
+        width: 30px;
+        height: 5px;
+        background: #fff;
+        margin: 5px 0px;
+        cursor: pointer;
+      }
 
+      .toggle-btn:hover span {
+        background: #b88b58;
+      }
+
+    header nav ul.active {
+        right: -150px;
+        display: grid;
+        background: #000;
+        z-index: 999;
+        padding: 0;
+    }
+    header nav ul.active li a{
+        margin-left: 43px;
+    }
+    section.jumbotron .section-footer img {
+        top: 909px;
+    }
+}
+@media all and (max-width:1280px){
+    section.gallery .overlay {
+            width: 100%;
+    }
+}
 @media all and (min-width:993px) and (max-width:1200px){
   section.services .item {
         margin: 12px 20px;
@@ -1745,13 +1844,23 @@ section.footer .subs p {
         overflow: hidden;
     }
     section.moreabout img, section.moreabout .item .last span  {
-      float: left;
+        float: left;
     }
-    section.moreabout .name {
-        text-align: unset !important;
-        float: right;
-        width: 50%;
+    section.moreabout img {
+        width: 100%;
+        height: unset;
     }
+    section.services {
+        height: unset;
+    }
+    section.services .item .name h2 {
+        width: unset;
+    }
+
+    section.gallery .overlay {
+        width: 100%;
+    }
+
     header {
         float: unset;
         position: unset;
@@ -1774,6 +1883,33 @@ section.footer .subs p {
         display: inline-block;
     }
     section.gallery .thumb {
-          max-width: unset;
+        max-width: unset;
+    }
+
+    section.slyder .worker {
+        width: auto;
+    }
+    section.information {
+        height: unset;
+    }
+    section.information .carousel-cell img {
+        margin: 40px auto;
+        float: unset;
+    }
+    section.premium img {
+      margin: 0 auto;
+      display: block;
+    }
+    section.numbers .item .name p {
+        margin: 38px auto;
+      }
+    section.social p {
+        text-align: center;
+    }
+    section.footer .subs {
+      margin: 40px auto;
+    }
+    section.jumbotron h1, section.jumbotron h2  {
+      font-size: 42px;
     }
 }
